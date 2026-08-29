@@ -1,203 +1,179 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f4f6f5">
-<title>IMPOSTER AARANU?</title>
-<link rel="icon" type="image/png" href="app_icon.png">
-<style>
-:root{--bg:#f4f6f5;--card:#fff;--ink:#27322f;--muted:#68736f;--line:#d8dfdc;--soft:#e7ece9;--accent:#506b64;--dark:#293632}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input{font:inherit}.app{max-width:720px;margin:auto;min-height:100vh}.top{display:flex;align-items:center;justify-content:space-between;padding:18px 20px}.brand{font-weight:900;letter-spacing:.5px}.round{font-size:13px;color:var(--muted);font-weight:700}.page{padding:8px 20px 32px}.hero h1{font-size:36px;line-height:1;margin:10px 0 8px;letter-spacing:-1.5px}.hero p{margin:0;color:var(--muted)}.section{margin-top:25px}.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.section-head b{font-size:13px;letter-spacing:1.4px}.section-head span{font-size:12px;color:var(--muted)}.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:14px}.player{display:flex;align-items:center;gap:10px;padding:8px 0}.num{width:34px;height:34px;border-radius:50%;background:var(--soft);display:grid;place-items:center;font-size:13px;font-weight:800}.player-name{flex:1;border:1px solid #aeb9b5;border-radius:10px;padding:10px 12px;background:#fff;font-weight:650}.player-name.placeholder{color:#888;cursor:pointer;font-weight:400}.icon-btn{border:0;background:transparent;color:var(--muted);font-size:20px;padding:6px}.add{display:flex;gap:8px;margin-top:8px}.input{width:100%;border:1px solid var(--line);border-radius:13px;padding:12px 13px;background:#fff;outline:none}.btn{border:1px solid var(--line);border-radius:14px;padding:13px 16px;background:#fff;color:var(--ink);font-weight:750}.primary{width:100%;background:var(--dark);color:#fff;border-color:var(--dark);padding:16px}.btn:disabled{opacity:.45}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 12px;color:var(--ink);font-size:13px}.chip.on{background:var(--soft);border-color:#b9c8c2}.setting{display:flex;align-items:center;justify-content:space-between;padding:8px 0}.setting label{font-weight:650}.select{border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px}.custom-select{position:relative;width:150px}
-.custom-select-button{width:100%;border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 34px 9px 11px;text-align:left;color:var(--ink);position:relative}
-.custom-select-button:after{content:"▾";position:absolute;right:11px;top:50%;transform:translateY(-50%);color:var(--muted)}
-.custom-select-menu{position:absolute;z-index:50;right:0;top:calc(100% + 6px);width:100%;background:#fff;border:1px solid var(--line);border-radius:12px;padding:5px;box-shadow:0 10px 30px rgba(39,50,47,.12);display:none}
-.custom-select.open .custom-select-menu{display:block}
-.custom-select-option{width:100%;border:0;background:#fff;border-radius:8px;padding:10px;text-align:left;color:var(--ink)}
-.custom-select-option:hover,.custom-select-option.selected{background:var(--soft)}.switch{appearance:none;width:46px;height:26px;border-radius:20px;background:#cbd3d0;position:relative;outline:none}.switch:checked{background:var(--accent)}.switch:before{content:"";position:absolute;width:20px;height:20px;border-radius:50%;background:#fff;left:3px;top:3px;transition:.2s}.switch:checked:before{transform:translateX(20px)}.hint{font-size:12px;color:var(--muted);margin:4px 0}.spacer{height:20px}.center{text-align:center}.reveal-card{height:290px;border-radius:28px;background:var(--dark);color:#fff;display:grid;place-items:center;text-align:center;padding:28px;user-select:none;-webkit-user-select:none;touch-action:none}.reveal-card.open{background:#e5ebe8;color:var(--ink);border:1px solid var(--line)}.reveal-title{font-size:12px;font-weight:900;letter-spacing:1.5px}.reveal-word{font-size:30px;font-weight:900;margin-top:12px}.sub{font-size:13px;color:var(--muted);margin-top:12px}.dark-sub{color:#b9c3bf}.timer{font-size:66px;font-weight:900;letter-spacing:-3px;text-align:center;margin:4px 0}.player-list{margin:20px 0}.person{display:flex;align-items:center;gap:12px;padding:13px;border-bottom:1px solid var(--line)}.person:last-child{border-bottom:0}.person .grow{flex:1}
-.pill{font-size:11px;color:var(--muted);font-weight:800}
-.skip{width:100%;background:transparent;border:1px solid #aeb9b5}
-.vote{display:flex;align-items:center;gap:12px;width:100%;background:#fff;border:1px solid var(--line);border-radius:16px;padding:15px;margin-bottom:9px;text-align:left}
-.vote.selected{background:var(--soft);border-color:#aebdb7}
-.dot{width:20px;height:20px;border:2px solid #aab5b1;border-radius:50%}
-.selected .dot{border:6px solid var(--accent)}
-.result-title{font-size:34px;font-weight:900;text-align:center}
-.info{background:var(--soft);border:1px solid var(--line);border-radius:18px;padding:17px;margin-bottom:10px}
-.info small{display:block;color:var(--muted);font-size:11px;font-weight:900;letter-spacing:1.3px}
-.info strong{display:block;font-size:20px;margin-top:5px}
-.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#27322f;color:#fff;padding:10px 14px;border-radius:12px;font-size:13px;display:none}
-.footer-note{font-size:11px;color:var(--muted);text-align:center;margin-top:14px}
-</style>
-</head>
-<body>
-<div class="app" id="app"></div><div class="toast" id="toast"></div>
-<script>
-const BANK={
-"Food":[["Puttu","A steamed rice-flour breakfast with coconut."],["Appam","A soft-centred rice pancake with crisp edges."],["Dosa","A thin crispy fermented rice pancake."],["Idli","A soft steamed rice-and-lentil cake."],["Sadhya","A traditional Kerala feast served on a banana leaf."],["Payasam","A sweet dish often served at celebrations."],["Parotta","A layered flatbread commonly eaten with curry."],["Beef Fry","A spicy Kerala dish often paired with porotta."],["Idiyappam","Thin rice noodles commonly eaten for breakfast."],["Unniyappam","A small sweet rice-based snack."],["Kappa","A starchy root commonly eaten with curry."],["Avial","A mixed vegetable dish with coconut and yogurt."],["Sambar","A lentil-based vegetable curry."],["Rasam","A thin spicy soup-like South Indian dish."],["Thoran","A dry vegetable dish cooked with coconut."],["Fish Curry","A spicy curry commonly made with fish."],["Kerala Biriyani","A fragrant rice dish with spices and meat or vegetables."],["Moru Curry","A yogurt-based Kerala curry."],["Theeyal","A roasted coconut and spice curry."],["Olan","A mild Kerala dish made with ash gourd and coconut milk."],["Erissery","A Kerala dish of vegetables, lentils and coconut."],["Kalan","A thick yogurt-based Kerala curry."],["Pachadi","A yogurt-based side dish with vegetables or fruit."],["Pulissery","A mildly sour yogurt-based curry."],["Kanji","A simple rice porridge commonly eaten with sides."],["Chapathi","A flat wheat bread cooked on a griddle."],["Chutney","A thick condiment served with many South Indian foods."],["Neyyappam","A sweet fried rice-flour snack made with jaggery."],["Koottukari","A Kerala dish combining vegetables, legumes and coconut."],["Pathiri","A thin soft rice flatbread."]],
-"Places":[["Kochi","A major coastal city in Kerala."],["Munnar","A hill destination famous for tea plantations."],["Alappuzha","A place famous for its backwaters."],["Wayanad","A green hill district in Kerala."],["Varkala","A coastal destination famous for its cliff."],["Kozhikode","A historic Malabar coastal city."],["Fort Kochi","A historic waterfront neighbourhood in Kochi."],["Thiruvananthapuram","The capital city of Kerala."],["Kollam","A coastal city known for its waterways and cashew industry."],["Kottayam","A Kerala town surrounded by greenery and rubber plantations."],["Thrissur","A city famous for its cultural traditions and Pooram."],["Kannur","A northern Kerala city known for Theyyam."],["Palakkad","A Kerala district known for its fort and mountain pass."],["Pathanamthitta","A Kerala district known for forests and pilgrimage sites."],["Idukki","A hilly Kerala district with dams and forests."],["Bekal","A coastal area famous for its large fort."],["Vagamon","A scenic hill station with meadows and pine forests."],["Thekkady","A destination associated with wildlife and forests."],["Kovalam","A coastal destination with popular beaches."],["Athirappilly","A Kerala destination famous for its waterfall."],["Kumarakom","A backwater destination near Vembanad Lake."],["Ponmudi","A hill station near Thiruvananthapuram."],["Thenmala","A forest destination known for eco-tourism."],["Malampuzha","A Kerala destination with a dam and gardens."],["Guruvayur","A town famous for its temple."],["Changanassery","A town connected with waterways and traditional culture."],["Nilambur","A place known for forests and teak."],["Munroe Island","A scenic group of islands near Kollam."],["Paravur","A coastal and backwater area in Kerala."],["Kasaragod","A northern Kerala district with forts and beaches."]],
-"Kerala Culture":[["Onam","A major Kerala festival."],["Vishu","A festival associated with kani."],["Theyyam","A ritual performance tradition of North Kerala."],["Kathakali","A classical Kerala dance-drama."],["Chenda","A traditional Kerala percussion instrument."],["Vallam Kali","A traditional boat race."],["Mohiniyattam","A classical dance form from Kerala."],["Kalaripayattu","A traditional martial art from Kerala."],["Mundum Neriyathum","A traditional Kerala clothing style."],["Onam Sadya","A festive vegetarian feast served during Onam."],["Pookalam","A decorative floral arrangement made during Onam."],["Onam Pookalam","A flower design traditionally made for Onam."],["Pulikali","A festive folk performance featuring tiger-like body paint."],["Thiruvathira","A traditional Kerala dance and festival associated with women."],["Oppana","A traditional performance associated with Malabar Muslim weddings."],["Duff Muttu","A traditional rhythmic performance using a duff."],["Margam Kali","A traditional Christian group dance from Kerala."],["Chavittu Nadakam","A traditional Latin Christian theatre form from Kerala."],["Kummattikali","A colourful traditional mask dance."],["Kolkkali","A traditional group dance using sticks."],["Ottan Thullal","A satirical performing art created in Kerala."],["Chakyar Koothu","A traditional solo storytelling performance."],["Krishnanattam","A classical theatre tradition associated with Krishna stories."],["Koodiyattam","An ancient Sanskrit theatre tradition from Kerala."],["Thiruvathirakali","A circular group dance performed during Thiruvathira."],["Mappilappattu","A traditional song tradition of Kerala's Malabar Muslims."],["Kalamezhuthu","A ritual art involving colourful floor drawings."],["Nettipattam","A decorative elephant forehead ornament."],["Vishu Kani","A ceremonial arrangement viewed on Vishu morning."],["Chundan Vallam","A long traditional snake boat used in races."]],
-"Kerala":[["Chaya","A drink commonly enjoyed with snacks."],["Kada","A small shop."],["Bakery","A familiar Kerala stop for snacks and sweets."],["Auto","A common three-wheeled local transport."],["KSRTC","Kerala state-run bus service."],["Tuition","Extra classes outside regular school."],["Monsoon","A major rainy season in Kerala."],["Umbrella","A useful item during Kerala's rainy months."],["Coconut","A fruit strongly associated with Kerala."],["Toddy Shop","A traditional place associated with toddy and Kerala food."],["Lungi","A common casual garment worn in Kerala."],["Mundu","A traditional white garment commonly worn in Kerala."],["Tea Shop","A small shop where tea and snacks are served."],["Rubber","A major plantation crop grown in Kerala."],["Cashew","A crop and food product associated with Kerala."],["Coir","A fibre made from coconut husks."],["Banana","A widely grown fruit used in many Kerala dishes."],["Monsoon Rain","Heavy seasonal rain common in Kerala."],["Backwater","A calm waterway connected with Kerala's coastal landscape."],["Temple","A place of worship found throughout Kerala."],["Church","A place of worship found throughout Kerala."],["Mosque","A place of worship found throughout Kerala."],["Kallu Shappu","A local term for a toddy shop."],["Mundu Shirt","A common traditional Kerala outfit combination."],["Jackfruit","A large tropical fruit widely grown in Kerala."],["Pepper","A spice historically important to Kerala."],["Cardamom","An aromatic spice grown in Kerala's high ranges."],["Rubber Plantation","A plantation where rubber trees are cultivated."],["Coconut Oil","An oil commonly used in Kerala cooking and traditions."],["Banana Leaf","A large leaf commonly used for serving Kerala food."]],
-"Cinema":[["Premam","A popular Malayalam film."],["Drishyam","A famous Malayalam thriller."],["Kumbalangi Nights","A Malayalam film centred on a family."],["Bangalore Days","A Malayalam film about cousins."],["Manichitrathazhu","A landmark Malayalam psychological thriller."],["Aavesham","A Malayalam film with a distinctive friendship story."],["Lucifer","A Malayalam political action thriller."],["Bheeshma Parvam","A Malayalam crime drama."],["Minnal Murali","A Malayalam superhero film."],["Home","A Malayalam family drama."],["Jaya Jaya Jaya Jaya Hey","A Malayalam comedy-drama."],["Romancham","A Malayalam horror comedy."],["Premalu","A Malayalam romantic comedy."],["2018","A Malayalam disaster drama inspired by Kerala floods."],["Trance","A Malayalam psychological drama."],["Kumbalangi","A village setting associated with a Malayalam film."],["Nayakan","A Malayalam film about a theatre performer and crime."],["Traffic","A Malayalam film known for its interconnected story."],["Ustad Hotel","A Malayalam film centred around food and family."],["Maheshinte Prathikaaram","A Malayalam comedy-drama about revenge and self-respect."],["Thondimuthalum Driksakshiyum","A Malayalam crime comedy-drama."],["Joji","A Malayalam drama inspired by Macbeth."],["Kappela","A Malayalam romantic drama."],["Android Kunjappan","A Malayalam science-fiction comedy."],["Take Off","A Malayalam survival drama."],["Virus","A Malayalam medical disaster drama."],["Charlie","A Malayalam romantic adventure film."],["Bangalore Days","A Malayalam film about three cousins."],["Iyobinte Pusthakam","A Malayalam period drama."],["Ayyappanum Koshiyum","A Malayalam action drama."]],
-"Snacks":[["Banana Chips","Thin fried banana slices."],["Achappam","A crisp flower-shaped snack."],["Murukku","A crunchy spiral snack."],["Parippu Vada","A crispy lentil fritter."],["Uzhunnu Vada","A savoury fried urad-dal snack."],["Pazham Pori","A fried banana snack."],["Unniyappam","A small sweet rice-based snack."],["Neyyappam","A sweet fried snack made with jaggery."],["Sukhiyan","A sweet lentil-filled fried snack."],["Bonda","A round deep-fried snack."],["Bajji","A vegetable dipped in batter and fried."],["Pakoda","A crispy fried snack made with spiced batter."],["Parippu Vada","A fried lentil snack often served with tea."],["Achappam","A crunchy moulded rice-flour snack."],["Kuzhalappam","A crisp rolled rice-flour snack."],["Unnakkaya","A sweet stuffed banana snack from Malabar."],["Kozhukkatta","A steamed rice dumpling often filled with coconut and jaggery."],["Ada","A steamed rice parcel filled with sweet coconut mixture."],["Chakka Varattiyathu","A sweet jackfruit preparation cooked with jaggery."],["Sharkara Varatti","Crisp banana pieces coated with jaggery."],["Mixture","A crunchy combination of savoury snack ingredients."],["Achinga Bajji","A fried snack made with long beans."],["Mulaku Bajji","A chilli dipped in batter and fried."],["Egg Bonda","A fried snack made around seasoned egg."],["Bread Pakoda","Bread coated in batter and fried."],["Vazhakka Bajji","Raw banana slices dipped in batter and fried."],["Onion Pakoda","Crispy fritters made with sliced onion."],["Sweet Boondi","Small fried droplets coated or mixed with sweetness."],["Kadalai","Roasted or fried peanuts commonly eaten as a snack."],["Peanut Mixture","A crunchy snack mix featuring peanuts."]],
-"Nature":[["Backwaters","A network of Kerala waterways."],["Coconut Tree","A tree strongly associated with Kerala."],["Tea Plantation","Common in Kerala high ranges."],["Western Ghats","Mountain range along eastern Kerala."],["Houseboat","A floating holiday experience."],["Waterfall","Water dropping over a natural rock edge."],["River","A natural flowing body of water."],["Lake","A large inland body of water."],["Paddy Field","A field used to grow rice."],["Forest","A large area covered with trees and plants."],["Mountain","A large natural elevation of land."],["Hill","A raised area of land smaller than a mountain."],["Beach","A shore covered with sand or small stones."],["Coconut Grove","An area filled with coconut trees."],["Tea Garden","An area where tea plants are cultivated."],["Rainforest","A dense forest receiving abundant rainfall."],["Mango Tree","A tree that produces mangoes."],["Banana Plant","A large tropical plant that produces bananas."],["Lotus","An aquatic flowering plant."],["Water Lily","A flowering plant that grows on water."],["Bamboo","A fast-growing grass with tall hollow stems."],["Spice Garden","A cultivated area containing aromatic spice plants."],["Elephant","A large animal found in Kerala's forests."],["Peacock","A colourful bird found in parts of India."],["Kingfisher","A bird often seen near water."],["Monsoon","A seasonal weather pattern bringing heavy rain."],["Cloud","A visible mass of water droplets or ice in the sky."],["Sunset","The time when the sun appears to go below the horizon."],["Mist","Tiny water droplets suspended close to the ground."],["Mangrove","A salt-tolerant coastal plant ecosystem."]],
-"Festivals":[["Thrissur Pooram","A famous temple festival known for elephants and percussion."],["Attukal Pongala","A huge festival centred around a special offering."],["Pulikali","A festive folk performance featuring tiger-like body paint."],["Pooram","A term used for several colourful temple festivals."],["Onam","A major harvest festival celebrated across Kerala."],["Vishu","A Kerala festival associated with Vishu Kani."],["Christmas","A widely celebrated festival marking Christmas Day."],["Eid","A Muslim festival celebrated after a period of fasting or pilgrimage."],["Eid al-Fitr","A festival marking the end of Ramadan."],["Eid al-Adha","A festival associated with sacrifice and pilgrimage."],["Deepavali","A major Indian festival of lights."],["Navaratri","A festival observed over nine nights."],["Maha Shivaratri","A Hindu festival dedicated to Shiva."],["Krishna Janmashtami","A festival celebrating the birth of Krishna."],["Easter","A Christian festival celebrating the resurrection of Jesus."],["Good Friday","A Christian day commemorating the crucifixion of Jesus."],["Vishu Kani","A ceremonial arrangement viewed on Vishu morning."],["Thiruvathira","A traditional Kerala festival associated with Thiruvathirakali."],["Makaravilakku","An annual religious festival event associated with Sabarimala."],["Mandala Kalam","A traditional pilgrimage season associated with Sabarimala."],["Navaratri Ghoshayatra","A festive cultural procession associated with Navaratri traditions."],["Ayyappa Mandala","A devotional season associated with Lord Ayyappa."],["Eid Milad","A celebration associated with the birth of Prophet Muhammad."],["New Year","A celebration marking the beginning of a new calendar year."],["Independence Day","A national day commemorating India's independence."],["Republic Day","A national day commemorating India's Constitution."],["Gandhi Jayanti","A national observance marking Mahatma Gandhi's birthday."],["Easter Sunday","The Sunday on which Easter is celebrated."],["Harvest Festival","A celebration connected with gathering crops."],["Temple Festival","A festival held around a temple with rituals and performances."]],
-"Transport":[["KSRTC Bus","A familiar bus on Kerala roads."],["Auto Rickshaw","A common short-distance ride."],["Ferry","A boat used as everyday transport in waterways."],["Metro","A rapid urban transport system available in Kochi."],["Local Train","A common rail option between towns and cities."],["Bus","A road vehicle used to carry passengers."],["Train","A rail vehicle made of connected carriages."],["Car","A common four-wheeled road vehicle."],["Bike","A two-wheeled vehicle powered by an engine."],["Bicycle","A two-wheeled vehicle powered by pedalling."],["Scooter","A lightweight two-wheeled motor vehicle."],["Motorcycle","A powered two-wheeled road vehicle."],["Taxi","A vehicle available for paid passenger transport."],["Airport","A place where aircraft take off and land."],["Airplane","An aircraft that travels through the air."],["Helicopter","An aircraft that uses rotating blades to fly."],["Boat","A small vessel used on water."],["Ship","A large vessel designed to travel on water."],["Houseboat","A boat designed to provide living or holiday space."],["Metro Train","A train used for rapid urban transport."],["Auto Stand","A place where auto rickshaws wait for passengers."],["Bus Stop","A designated place where buses pick up passengers."],["Railway Station","A place where trains stop for passengers."],["Cycle Rickshaw","A passenger vehicle powered by pedalling."],["Truck","A large road vehicle used to carry goods."],["Lorry","A truck used to transport goods."],["Ambulance","A vehicle used to transport patients and provide emergency care."],["Fire Engine","A vehicle used by firefighters."],["School Bus","A bus used to transport students."],["Container Ship","A ship designed to carry cargo containers."]]};
+from pathlib import Path
 
-let players=["","",""], cats=new Set(["Food","Kerala Culture"]);
-let settings={imposters:1,rounds:3,time:300,hint:false,impCat:false};
-let round=1, phase="setup", revealIndex=0, revealed=false, category="",secret=null,imposters=[],vote=null,seconds=0,timer=null,history=[],starterIndex=0;
-let usedWords=[];
+src = Path("/mnt/data/Aaranu_Imposter_v1.1_random_starter_no_number.html")
+html = src.read_text(encoding="utf-8")
 
-const app=document.getElementById("app");
-const esc=s=>String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
-const pick=a=>a[Math.floor(Math.random()*a.length)];
-function rec(){return players.length<=5?1:players.length<=8?2:players.length<=12?3:Math.max(3,Math.ceil(players.length/4))}
-function fmt(s){return String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0")}
-function toast(t){let x=document.getElementById("toast");x.textContent=t;x.style.display="block";setTimeout(()=>x.style.display="none",1600)}
-function header(text=""){return `<div class="top"><div class="brand">IMPOSTER AARANU?</div><div class="round">${esc(text)}</div></div>`}
-function section(a,b=""){return `<div class="section-head"><b>${a}</b><span>${b}</span></div>`}
-
-function setup(){
-phase="setup";
-app.innerHTML=header()+`<div class="page">
-<div class="hero"><h1>Who is the imposter?</h1><p>A Kerala-inspired hidden word party game.</p></div>
-<div class="section">${section("PLAYERS",players.length+" players")}<div class="card">
-${players.map((p,i)=>`<div class="player"><div class="num">${i+1}</div><input class="player-name" value="${esc(p)}" placeholder="Type your name here" oninput="players[${i}]=this.value">${players.length>3?`<button class="icon-btn" onclick="removePlayer(${i})" aria-label="Remove player">×</button>`:""}</div>`).join("")}
-<div class="add"><input id="name" class="input" placeholder="Add player name"><button class="btn" onclick="addPlayer()">Add</button></div></div></div>
-<div class="section">${section("CATEGORIES",cats.size+" selected")}<div class="card"><div class="chips">${Object.keys(BANK).map(c=>`<button class="chip ${cats.has(c)?"on":""}" onclick="toggleCat('${esc(c)}')">${esc(c)}</button>`).join("")}</div></div></div>
-<div class="section">${section("GAME SETTINGS","Customize")}<div class="card">
-<div class="setting"> <label>Imposters</label> <div class="custom-select" id="imposterSelect"> <button type="button" class="custom-select-button" onclick="toggleImposterMenu()"> ${settings.imposters} </button> <div class="custom-select-menu"> ${Array.from({   length: players.length <= 4 ? 1 :           players.length <= 8 ? 2 : 3 },(_,i)=>` <button type="button" class="custom-select-option ${settings.imposters===i+1?"selected":""}" onclick="setImposters(${i+1})"> ${i+1}${settings.imposters===i+1?" ✓":""} </button> `).join("")} </div> </div> </div>
-<div class="hint">Recommended: ${rec()} imposter${rec()==1?"":"s"}</div>
-<div class="setting"> <label>Discussion</label> <div class="custom-select" id="timeSelect"> <button type="button" class="custom-select-button" onclick="toggleTimeMenu()"> ${settings.time===0?"Turn off time":settings.time/60+" min"} </button> <div class="custom-select-menu"> ${[[0,"Turn off time"],[300,"5 min"],[600,"10 min"],[900,"15 min"]].map(([v,t])=>` <button type="button" class="custom-select-option ${settings.time===v?"selected":""}" onclick="setTime(${v})"> ${t}${settings.time===v?" ✓":""} </button>`).join("")} </div> </div> </div><div class="setting"><label>Imposter hint</label><input class="switch" type="checkbox" ${settings.hint?"checked":""} onchange="settings.hint=this.checked"></div>
-<div class="setting"><label>Category to imposter</label><input class="switch" type="checkbox" ${settings.impCat?"checked":""} onchange="settings.impCat=this.checked"></div>
-</div></div>
-<div class="spacer"></div><button class="btn primary" ${players.length<3||cats.size===0?"disabled":""} onclick="startGame()">START GAME</button></div></div>`;
+bank = {
+"Food": [
+("Puttu","A steamed rice-flour breakfast with coconut."),("Appam","A soft-centred rice pancake with crisp edges."),
+("Dosa","A thin crispy fermented rice pancake."),("Idli","A soft steamed rice-and-lentil cake."),
+("Sadhya","A traditional Kerala feast served on a banana leaf."),("Payasam","A sweet dish often served at celebrations."),
+("Parotta","A layered flatbread commonly eaten with curry."),("Beef Fry","A spicy Kerala dish often paired with porotta."),
+("Idiyappam","Thin rice noodles commonly eaten for breakfast."),("Unniyappam","A small sweet rice-based snack."),
+("Kappa","A starchy root commonly eaten with curry."),("Avial","A mixed vegetable dish with coconut and yogurt."),
+("Sambar","A lentil-based vegetable curry."),("Rasam","A thin spicy soup-like South Indian dish."),
+("Thoran","A dry vegetable dish cooked with coconut."),("Fish Curry","A spicy curry commonly made with fish."),
+("Kerala Biriyani","A fragrant rice dish with spices and meat or vegetables."),("Moru Curry","A yogurt-based Kerala curry."),
+("Theeyal","A roasted coconut and spice curry."),("Olan","A mild Kerala dish made with ash gourd and coconut milk."),
+("Erissery","A Kerala dish of vegetables, lentils and coconut."),("Kalan","A thick yogurt-based Kerala curry."),
+("Pachadi","A yogurt-based side dish with vegetables or fruit."),("Pulissery","A mildly sour yogurt-based curry."),
+("Kanji","A simple rice porridge commonly eaten with sides."),("Chapathi","A flat wheat bread cooked on a griddle."),
+("Chutney","A thick condiment served with many South Indian foods."),("Neyyappam","A sweet fried rice-flour snack made with jaggery."),
+("Koottukari","A Kerala dish combining vegetables, legumes and coconut."),("Pathiri","A thin soft rice flatbread.")
+],
+"Places": [
+("Kochi","A major coastal city in Kerala."),("Munnar","A hill destination famous for tea plantations."),
+("Alappuzha","A place famous for its backwaters."),("Wayanad","A green hill district in Kerala."),
+("Varkala","A coastal destination famous for its cliff."),("Kozhikode","A historic Malabar coastal city."),
+("Fort Kochi","A historic waterfront neighbourhood in Kochi."),("Thiruvananthapuram","The capital city of Kerala."),
+("Kollam","A coastal city known for its waterways and cashew industry."),("Kottayam","A Kerala town surrounded by greenery and rubber plantations."),
+("Thrissur","A city famous for its cultural traditions and Pooram."),("Kannur","A northern Kerala city known for Theyyam."),
+("Palakkad","A Kerala district known for its fort and mountain pass."),("Pathanamthitta","A Kerala district known for forests and pilgrimage sites."),
+("Idukki","A hilly Kerala district with dams and forests."),("Bekal","A coastal area famous for its large fort."),
+("Vagamon","A scenic hill station with meadows and pine forests."),("Thekkady","A destination associated with wildlife and forests."),
+("Kovalam","A coastal destination with popular beaches."),("Athirappilly","A Kerala destination famous for its waterfall."),
+("Kumarakom","A backwater destination near Vembanad Lake."),("Ponmudi","A hill station near Thiruvananthapuram."),
+("Thenmala","A forest destination known for eco-tourism."),("Malampuzha","A Kerala destination with a dam and gardens."),
+("Guruvayur","A town famous for its temple."),("Changanassery","A town connected with waterways and traditional culture."),
+("Nilambur","A place known for forests and teak."),("Munroe Island","A scenic group of islands near Kollam."),
+("Paravur","A coastal and backwater area in Kerala."),("Kasaragod","A northern Kerala district with forts and beaches.")
+],
+"Kerala Culture": [
+("Onam","A major Kerala festival."),("Vishu","A festival associated with kani."),
+("Theyyam","A ritual performance tradition of North Kerala."),("Kathakali","A classical Kerala dance-drama."),
+("Chenda","A traditional Kerala percussion instrument."),("Vallam Kali","A traditional boat race."),
+("Mohiniyattam","A classical dance form from Kerala."),("Kalaripayattu","A traditional martial art from Kerala."),
+("Mundum Neriyathum","A traditional Kerala clothing style."),("Onam Sadya","A festive vegetarian feast served during Onam."),
+("Pookalam","A decorative floral arrangement made during Onam."),("Onam Pookalam","A flower design traditionally made for Onam."),
+("Pulikali","A festive folk performance featuring tiger-like body paint."),("Thiruvathira","A traditional Kerala dance and festival associated with women."),
+("Oppana","A traditional performance associated with Malabar Muslim weddings."),("Duff Muttu","A traditional rhythmic performance using a duff."),
+("Margam Kali","A traditional Christian group dance from Kerala."),("Chavittu Nadakam","A traditional Latin Christian theatre form from Kerala."),
+("Kummattikali","A colourful traditional mask dance."),("Kolkkali","A traditional group dance using sticks."),
+("Ottan Thullal","A satirical performing art created in Kerala."),("Chakyar Koothu","A traditional solo storytelling performance."),
+("Krishnanattam","A classical theatre tradition associated with Krishna stories."),("Koodiyattam","An ancient Sanskrit theatre tradition from Kerala."),
+("Thiruvathirakali","A circular group dance performed during Thiruvathira."),("Mappilappattu","A traditional song tradition of Kerala's Malabar Muslims."),
+("Kalamezhuthu","A ritual art involving colourful floor drawings."),("Nettipattam","A decorative elephant forehead ornament."),
+("Vishu Kani","A ceremonial arrangement viewed on Vishu morning."),("Chundan Vallam","A long traditional snake boat used in races.")
+],
+"Kerala": [
+("Chaya","A drink commonly enjoyed with snacks."),("Kada","A small shop."),
+("Bakery","A familiar Kerala stop for snacks and sweets."),("Auto","A common three-wheeled local transport."),
+("KSRTC","Kerala state-run bus service."),("Tuition","Extra classes outside regular school."),
+("Monsoon","A major rainy season in Kerala."),("Umbrella","A useful item during Kerala's rainy months."),
+("Coconut","A fruit strongly associated with Kerala."),("Toddy Shop","A traditional place associated with toddy and Kerala food."),
+("Lungi","A common casual garment worn in Kerala."),("Mundu","A traditional white garment commonly worn in Kerala."),
+("Tea Shop","A small shop where tea and snacks are served."),("Rubber","A major plantation crop grown in Kerala."),
+("Cashew","A crop and food product associated with Kerala."),("Coir","A fibre made from coconut husks."),
+("Banana","A widely grown fruit used in many Kerala dishes."),("Monsoon Rain","Heavy seasonal rain common in Kerala."),
+("Backwater","A calm waterway connected with Kerala's coastal landscape."),("Temple","A place of worship found throughout Kerala."),
+("Church","A place of worship found throughout Kerala."),("Mosque","A place of worship found throughout Kerala."),
+("Kallu Shappu","A local term for a toddy shop."),("Mundu Shirt","A common traditional Kerala outfit combination."),
+("Jackfruit","A large tropical fruit widely grown in Kerala."),("Pepper","A spice historically important to Kerala."),
+("Cardamom","An aromatic spice grown in Kerala's high ranges."),("Rubber Plantation","A plantation where rubber trees are cultivated."),
+("Coconut Oil","An oil commonly used in Kerala cooking and traditions."),("Banana Leaf","A large leaf commonly used for serving Kerala food.")
+],
+"Cinema": [
+("Premam","A popular Malayalam film."),("Drishyam","A famous Malayalam thriller."),
+("Kumbalangi Nights","A Malayalam film centred on a family."),("Bangalore Days","A Malayalam film about cousins."),
+("Manichitrathazhu","A landmark Malayalam psychological thriller."),("Aavesham","A Malayalam film with a distinctive friendship story."),
+("Lucifer","A Malayalam political action thriller."),("Bheeshma Parvam","A Malayalam crime drama."),
+("Minnal Murali","A Malayalam superhero film."),("Home","A Malayalam family drama."),
+("Jaya Jaya Jaya Jaya Hey","A Malayalam comedy-drama."),("Romancham","A Malayalam horror comedy."),
+("Premalu","A Malayalam romantic comedy."),("2018","A Malayalam disaster drama inspired by Kerala floods."),
+("Trance","A Malayalam psychological drama."),("Kumbalangi","A village setting associated with a Malayalam film."),
+("Nayakan","A Malayalam film about a theatre performer and crime."),("Traffic","A Malayalam film known for its interconnected story."),
+("Ustad Hotel","A Malayalam film centred around food and family."),("Maheshinte Prathikaaram","A Malayalam comedy-drama about revenge and self-respect."),
+("Thondimuthalum Driksakshiyum","A Malayalam crime comedy-drama."),("Joji","A Malayalam drama inspired by Macbeth."),
+("Kappela","A Malayalam romantic drama."),("Android Kunjappan","A Malayalam science-fiction comedy."),
+("Take Off","A Malayalam survival drama."),("Virus","A Malayalam medical disaster drama."),
+("Charlie","A Malayalam romantic adventure film."),("Bangalore Days","A Malayalam film about three cousins."),
+("Iyobinte Pusthakam","A Malayalam period drama."),("Ayyappanum Koshiyum","A Malayalam action drama.")
+],
+"Snacks": [
+("Banana Chips","Thin fried banana slices."),("Achappam","A crisp flower-shaped snack."),
+("Murukku","A crunchy spiral snack."),("Parippu Vada","A crispy lentil fritter."),
+("Uzhunnu Vada","A savoury fried urad-dal snack."),("Pazham Pori","A fried banana snack."),
+("Unniyappam","A small sweet rice-based snack."),("Neyyappam","A sweet fried snack made with jaggery."),
+("Sukhiyan","A sweet lentil-filled fried snack."),("Bonda","A round deep-fried snack."),
+("Bajji","A vegetable dipped in batter and fried."),("Pakoda","A crispy fried snack made with spiced batter."),
+("Parippu Vada","A fried lentil snack often served with tea."),("Achappam","A crunchy moulded rice-flour snack."),
+("Kuzhalappam","A crisp rolled rice-flour snack."),("Unnakkaya","A sweet stuffed banana snack from Malabar."),
+("Kozhukkatta","A steamed rice dumpling often filled with coconut and jaggery."),("Ada","A steamed rice parcel filled with sweet coconut mixture."),
+("Chakka Varattiyathu","A sweet jackfruit preparation cooked with jaggery."),("Sharkara Varatti","Crisp banana pieces coated with jaggery."),
+("Mixture","A crunchy combination of savoury snack ingredients."),("Achinga Bajji","A fried snack made with long beans."),
+("Mulaku Bajji","A chilli dipped in batter and fried."),("Egg Bonda","A fried snack made around seasoned egg."),("Bread Pakoda","Bread coated in batter and fried."),
+("Vazhakka Bajji","Raw banana slices dipped in batter and fried."),("Onion Pakoda","Crispy fritters made with sliced onion."),
+("Sweet Boondi","Small fried droplets coated or mixed with sweetness."),("Kadalai","Roasted or fried peanuts commonly eaten as a snack."),
+("Peanut Mixture","A crunchy snack mix featuring peanuts.")
+],
+"Nature": [
+("Backwaters","A network of Kerala waterways."),("Coconut Tree","A tree strongly associated with Kerala."),
+("Tea Plantation","Common in Kerala high ranges."),("Western Ghats","Mountain range along eastern Kerala."),
+("Houseboat","A floating holiday experience."),("Waterfall","Water dropping over a natural rock edge."),
+("River","A natural flowing body of water."),("Lake","A large inland body of water."),
+("Paddy Field","A field used to grow rice."),("Forest","A large area covered with trees and plants."),
+("Mountain","A large natural elevation of land."),("Hill","A raised area of land smaller than a mountain."),
+("Beach","A shore covered with sand or small stones."),("Coconut Grove","An area filled with coconut trees."),
+("Tea Garden","An area where tea plants are cultivated."),("Rainforest","A dense forest receiving abundant rainfall."),
+("Mango Tree","A tree that produces mangoes."),("Banana Plant","A large tropical plant that produces bananas."),
+("Lotus","An aquatic flowering plant."),("Water Lily","A flowering plant that grows on water."),
+("Bamboo","A fast-growing grass with tall hollow stems."),("Spice Garden","A cultivated area containing aromatic spice plants."),
+("Elephant","A large animal found in Kerala's forests."),("Peacock","A colourful bird found in parts of India."),
+("Kingfisher","A bird often seen near water."),("Monsoon","A seasonal weather pattern bringing heavy rain."),
+("Cloud","A visible mass of water droplets or ice in the sky."),("Sunset","The time when the sun appears to go below the horizon."),
+("Mist","Tiny water droplets suspended close to the ground."),("Mangrove","A salt-tolerant coastal plant ecosystem.")
+],
+"Festivals": [
+("Thrissur Pooram","A famous temple festival known for elephants and percussion."),("Attukal Pongala","A huge festival centred around a special offering."),
+("Pulikali","A festive folk performance featuring tiger-like body paint."),("Pooram","A term used for several colourful temple festivals."),
+("Onam","A major harvest festival celebrated across Kerala."),("Vishu","A Kerala festival associated with Vishu Kani."),
+("Christmas","A widely celebrated festival marking Christmas Day."),("Eid","A Muslim festival celebrated after a period of fasting or pilgrimage."),
+("Eid al-Fitr","A festival marking the end of Ramadan."),("Eid al-Adha","A festival associated with sacrifice and pilgrimage."),
+("Deepavali","A major Indian festival of lights."),("Navaratri","A festival observed over nine nights."),
+("Maha Shivaratri","A Hindu festival dedicated to Shiva."),("Krishna Janmashtami","A festival celebrating the birth of Krishna."),
+("Easter","A Christian festival celebrating the resurrection of Jesus."),("Good Friday","A Christian day commemorating the crucifixion of Jesus."),
+("Vishu Kani","A ceremonial arrangement viewed on Vishu morning."),("Thiruvathira","A traditional Kerala festival associated with Thiruvathirakali."),
+("Makaravilakku","An annual religious festival event associated with Sabarimala."),("Mandala Kalam","A traditional pilgrimage season associated with Sabarimala."),
+("Navaratri Ghoshayatra","A festive cultural procession associated with Navaratri traditions."),("Ayyappa Mandala","A devotional season associated with Lord Ayyappa."),
+("Eid Milad","A celebration associated with the birth of Prophet Muhammad."),("New Year","A celebration marking the beginning of a new calendar year."),
+("Independence Day","A national day commemorating India's independence."),("Republic Day","A national day commemorating India's Constitution."),
+("Gandhi Jayanti","A national observance marking Mahatma Gandhi's birthday."),("Easter Sunday","The Sunday on which Easter is celebrated."),
+("Harvest Festival","A celebration connected with gathering crops."),("Temple Festival","A festival held around a temple with rituals and performances.")
+],
+"Transport": [
+("KSRTC Bus","A familiar bus on Kerala roads."),("Auto Rickshaw","A common short-distance ride."),
+("Ferry","A boat used as everyday transport in waterways."),("Metro","A rapid urban transport system available in Kochi."),
+("Local Train","A common rail option between towns and cities."),("Bus","A road vehicle used to carry passengers."),
+("Train","A rail vehicle made of connected carriages."),("Car","A common four-wheeled road vehicle."),
+("Bike","A two-wheeled vehicle powered by an engine."),("Bicycle","A two-wheeled vehicle powered by pedalling."),
+("Scooter","A lightweight two-wheeled motor vehicle."),("Motorcycle","A powered two-wheeled road vehicle."),
+("Taxi","A vehicle available for paid passenger transport."),("Airport","A place where aircraft take off and land."),
+("Airplane","An aircraft that travels through the air."),("Helicopter","An aircraft that uses rotating blades to fly."),
+("Boat","A small vessel used on water."),("Ship","A large vessel designed to travel on water."),
+("Houseboat","A boat designed to provide living or holiday space."),("Metro Train","A train used for rapid urban transport."),
+("Auto Stand","A place where auto rickshaws wait for passengers."),("Bus Stop","A designated place where buses pick up passengers."),
+("Railway Station","A place where trains stop for passengers."),("Cycle Rickshaw","A passenger vehicle powered by pedalling."),
+("Truck","A large road vehicle used to carry goods."),("Lorry","A truck used to transport goods."),
+("Ambulance","A vehicle used to transport patients and provide emergency care."),("Fire Engine","A vehicle used by firefighters."),
+("School Bus","A bus used to transport students."),("Container Ship","A ship designed to carry cargo containers.")
+]
 }
-function addPlayer(){let x=document.getElementById("name").value.trim();if(!x)return;let empty=players.findIndex(p=>!p);if(empty!==-1){players[empty]=x}else{players.push(x)}setup()}
-function removePlayer(i){if(players.length<=3)return;players.splice(i,1);settings.imposters=Math.min(settings.imposters,Math.max(1,players.length-2));setup()}
-function toggleCat(c){cats.has(c)?cats.delete(c):cats.add(c);setup()}
-function toggleTimeMenu(){
-    const menu = document.getElementById("timeSelect");
-    if(menu){
-        menu.classList.toggle("open");
-    }
-}
 
-function setTime(value){
-    settings.time = value;
-    setup();
-}
+def js_escape(s):
+    return s.replace("\\","\\\\").replace('"','\\"')
 
-document.addEventListener("click", function(e){
-    const select = document.getElementById("timeSelect");
+bank_js = "const BANK={\n" + ",\n".join(
+    f'"{cat}":[' + ",".join(f'["{js_escape(w)}","{js_escape(d)}"]' for w,d in words) + "]"
+    for cat, words in bank.items()
+) + "};"
 
-    if(select && !select.contains(e.target)){
-        select.classList.remove("open");
-    }
-});
-  function toggleImposterMenu(){
-    const menu=document.getElementById("imposterSelect");
-    if(menu){
-        menu.classList.toggle("open");
-    }
-}
+start = html.index("const BANK={")
+end = html.index("let players=", start)
+html = html[:start] + bank_js + "\n\n" + html[end:]
 
-function setImposters(value){
-    settings.imposters=value;
-    setup();
-}
-function startGame(){
-if(players.length<3||!cats.size||players.some(p=>!p.trim()))return;
-newRound();
-renderReveal();
-}
+out = Path("/mnt/data/Aaranu_Imposter_v1.1_big_word_bank.html")
+out.write_text(html, encoding="utf-8")
 
-function newRound(){
-category=pick([...cats]);
-
-let available=BANK[category].filter(word=>!usedWords.includes(word[0]));
-
-if(available.length===0){
-usedWords=[];
-available=BANK[category];
-}
-
-secret=pick(available);
-usedWords.push(secret[0]);
-
-let a=players.map((_,i)=>i).sort(()=>Math.random()-.5);
-imposters=a.slice(0,Math.min(settings.imposters,players.length-2));
-starterIndex=Math.floor(Math.random()*players.length);
-revealIndex=0;
-revealed=false;
-vote=null;
-phase="reveal";
-}
-
-function renderReveal(){phase="reveal";app.innerHTML=header()+`<div class="page center"><div class="spacer"></div>
-<div class="pill">PLAYER ${revealIndex+1} OF ${players.length}</div><h1 style="margin:8px 0 28px">${esc(players[revealIndex])}</h1>
-<div id="revealCard" class="reveal-card"><div><div class="reveal-title">HOLD TO REVEAL</div><div class="sub dark-sub">Make sure only this player is looking.</div></div></div>
-<div class="spacer"></div><button id="pass" class="btn primary" disabled>${revealIndex===players.length-1?"START DISCUSSION":"HIDE & PASS"}</button></div>`;
-let card=document.getElementById("revealCard"), press=false;
-const open=()=>{revealed=true;card.classList.add("open");let imp=imposters.includes(revealIndex);card.innerHTML=`<div><div class="reveal-title">${imp?"YOU ARE THE IMPOSTER":"YOUR WORD"}</div><div class="reveal-word">${imp?"IMPOSTER":esc(secret[0])}</div>${imp&&settings.impCat?`<div class="sub">Category: ${esc(category)}</div>`:""}${imp&&settings.hint?`<div class="sub">Hint: ${esc(secret[1])}</div>`:""}</div>`;document.getElementById("pass").disabled=false};
-card.addEventListener("pointerdown",e=>{press=true;card.setPointerCapture(e.pointerId);setTimeout(()=>{if(press)open()},350)});
-card.addEventListener("pointerup",()=>press=false);card.addEventListener("pointercancel",()=>press=false);
-document.getElementById("pass").onclick=()=>{if(!revealed)return;if(revealIndex===players.length-1)startDiscussion();else{revealIndex++;revealed=false;renderReveal()}};
-}
-function startDiscussion(){     phase="discussion";     seconds=settings.time;     renderDiscussion();     clearInterval(timer);      if(settings.time>0){         timer=setInterval(()=>{             seconds--;              let el=document.getElementById("timer");             if(el) el.textContent=fmt(seconds);              if(seconds<=0){                 clearInterval(timer);                 startVoting();             }         },1000);     } }
-function renderDiscussion(){
-    app.innerHTML=header()+`<div class="page center">
-
-    <div class="spacer"></div>
-
-    ${settings.time>0
-        ? `
-        <div class="reveal-title" style="margin-bottom:20px">
-            DISCUSSION TIME
-        </div>
-
-        <div id="timer" class="timer" style="margin:20px 0 35px">
-            ${fmt(seconds)}
-        </div>
-        `
-        : `
-        <div class="timer" style="font-size:32px;letter-spacing:0.5px;margin:30px 0 45px">
-            Discussion Time
-        </div>
-        `
-    }
-
-    <div class="sub" style="margin-bottom:35px">
-        Discuss the word without saying it directly.
-    </div>
-
-    <div class="card player-list">
-        <div class="person" style="border-bottom:0">
-            <div class="grow">
-                <strong>${esc(players[starterIndex])}</strong>
-                <div class="pill" style="margin-top:4px">STARTS THE DISCUSSION</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="spacer"></div>
-
-    <button class="btn primary" onclick="startVoting()">
-        END DISCUSSION & VOTE
-    </button>
-
-    </div>`
-}
-  
-function startVoting(){clearInterval(timer);phase="voting";vote=null;renderVoting()}
-
-function renderVoting(){app.innerHTML=header()+`<div class="page"><div class="center"><div class="reveal-title">WHO IS THE IMPOSTER?</div><h1 style="font-size:28px">Choose one player.</h1></div><div class="spacer"></div>${players.map((p,i)=>`<button class="vote ${vote===i?"selected":""}" onclick="selectVote(${i})"><div class="dot"></div><strong>${esc(p)}</strong></button>`).join("")}<div class="spacer"></div><button id="revealResult" class="btn primary" ${vote===null?"disabled":""} onclick="finish()">REVEAL RESULTS</button></div>`}
-
-function selectVote(i){vote=i;renderVoting()}
-
-function finish(){clearInterval(timer);phase="finished";let found=imposters.includes(vote);app.innerHTML=header()+`<div class="page center"><div class="spacer"></div><div class="reveal-title">${found?"CREW WINS!":"IMPOSTER ESCAPED"}</div><div class="result-title">${found?"Imposter Found.":"Imposter Wins!"}</div><div class="spacer"></div><div class="info" style="text-align:left"><small>SECRET WORD</small><strong>${esc(secret[0])}</strong></div><div class="info" style="text-align:left"><small>IMPOSTER${imposters.length>1?"S":""}</small><strong>${imposters.map(i=>esc(players[i])).join(", ")}</strong></div><div class="spacer"></div><button class="btn primary" onclick="setup()">PLAY AGAIN</button></div>`}
-
-setup();
-</script>
-</body>
-</html>
+total = sum(len(v) for v in bank.values())
+print(f"Added {total} words across {len(bank)} categories (30 per category).")
+print(f"Created: {out}")
